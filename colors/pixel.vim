@@ -20,8 +20,8 @@ endif
 " Basic highlight groups - using only ANSI terminal colors
 hi Normal ctermfg=7 ctermbg=0
 hi Cursor ctermfg=0 ctermbg=7
-hi CursorLine ctermbg=8
-hi CursorColumn ctermbg=8
+hi CursorLine ctermbg=0 cterm=NONE
+hi CursorColumn ctermbg=0 cterm=NONE
 hi LineNr ctermfg=8
 hi CursorLineNr ctermfg=7
 
@@ -32,34 +32,34 @@ hi Character ctermfg=10
 hi Number ctermfg=6
 hi Float ctermfg=6
 hi Boolean ctermfg=1
-hi Constant ctermfg=5
+hi Constant ctermfg=3
 hi Identifier ctermfg=7
-hi Function ctermfg=1 cterm=bold
+hi Function ctermfg=4 cterm=bold
 hi Statement ctermfg=4 cterm=bold
 hi Conditional ctermfg=4
 hi Repeat ctermfg=4
 hi Label ctermfg=4
-hi Operator ctermfg=7
+hi Operator ctermfg=3
 hi Keyword ctermfg=4 cterm=bold
-hi Exception ctermfg=1
+hi Exception ctermfg=4
 hi PreProc ctermfg=13
 hi Include ctermfg=13
 hi Define ctermfg=13
 hi Macro ctermfg=13
 hi PreCondit ctermfg=13
-hi Type ctermfg=3 cterm=bold
-hi StorageClass ctermfg=3
-hi Structure ctermfg=3
-hi Typedef ctermfg=3
-hi Special ctermfg=6
+hi Type ctermfg=4 cterm=bold
+hi StorageClass ctermfg=4
+hi Structure ctermfg=4
+hi Typedef ctermfg=4
+hi Special ctermfg=4
 hi SpecialChar ctermfg=14
 hi Tag ctermfg=1
-hi Delimiter ctermfg=7
+hi Delimiter ctermfg=3
 hi SpecialComment ctermfg=11
 hi Debug ctermfg=9
 
 " Additional syntax highlighting
-hi Class ctermfg=3 cterm=bold
+hi Class ctermfg=4 cterm=bold
 hi Variable ctermfg=7
 hi Property ctermfg=6
 hi Method ctermfg=1
@@ -68,7 +68,7 @@ hi Method ctermfg=1
 hi Visual ctermbg=8
 hi Search ctermfg=0 ctermbg=3 cterm=bold
 hi IncSearch ctermfg=0 ctermbg=11 cterm=bold
-hi StatusLine ctermfg=7 ctermbg=8 cterm=bold
+hi StatusLine ctermfg=15 ctermbg=0 cterm=bold
 hi StatusLineNC ctermfg=8 ctermbg=0
 hi VertSplit ctermfg=8
 hi Pmenu ctermfg=7 ctermbg=8
@@ -158,10 +158,10 @@ hi DiagnosticUnderlineHint cterm=underline
 
 " LSP semantic highlighting - treesitter
 hi @variable ctermfg=7
-hi @variable.builtin ctermfg=5 cterm=italic
+hi @variable.builtin ctermfg=3 cterm=italic
 hi @variable.parameter ctermfg=7 cterm=italic
-hi @constant ctermfg=5 cterm=bold
-hi @constant.builtin ctermfg=5 cterm=bold,italic
+hi @constant ctermfg=3 cterm=bold
+hi @constant.builtin ctermfg=3 cterm=bold,italic
 hi @constant.macro ctermfg=13 cterm=bold
 hi @string ctermfg=2
 hi @string.escape ctermfg=10 cterm=bold
@@ -170,11 +170,11 @@ hi @character ctermfg=10
 hi @number ctermfg=6
 hi @boolean ctermfg=1 cterm=bold
 hi @float ctermfg=6
-hi @function ctermfg=1 cterm=bold
-hi @function.builtin ctermfg=1 cterm=bold,italic
-hi @function.macro ctermfg=9 cterm=bold
-hi @method ctermfg=1
-hi @constructor ctermfg=3 cterm=bold
+hi @function ctermfg=4 cterm=bold
+hi @function.builtin ctermfg=4 cterm=bold,italic
+hi @function.macro ctermfg=12 cterm=bold
+hi @method ctermfg=4
+hi @constructor ctermfg=4 cterm=bold
 hi @parameter ctermfg=7 cterm=italic
 hi @keyword ctermfg=4 cterm=bold
 hi @keyword.function ctermfg=4 cterm=italic
@@ -183,23 +183,57 @@ hi @keyword.return ctermfg=4 cterm=bold
 hi @conditional ctermfg=4
 hi @repeat ctermfg=4
 hi @label ctermfg=4
-hi @operator ctermfg=7
-hi @exception ctermfg=1 cterm=bold
-hi @type ctermfg=3 cterm=bold
-hi @type.builtin ctermfg=3 cterm=bold,italic
-hi @type.definition ctermfg=3
-hi @storageclass ctermfg=3
-hi @structure ctermfg=3
-hi @namespace ctermfg=3 cterm=italic
+hi @operator ctermfg=3
+hi @exception ctermfg=4 cterm=bold
+hi @type ctermfg=4 cterm=bold
+hi @type.builtin ctermfg=4 cterm=bold,italic
+hi @type.definition ctermfg=4
+hi @storageclass ctermfg=4
+hi @structure ctermfg=4
+hi @namespace ctermfg=4 cterm=italic
 hi @include ctermfg=13 cterm=bold
 hi @preproc ctermfg=13
 hi @debug ctermfg=9
 hi @tag ctermfg=1
 hi @tag.attribute ctermfg=6
-hi @tag.delimiter ctermfg=7
+hi @tag.delimiter ctermfg=3
 hi @comment ctermfg=8 cterm=italic
 hi @comment.documentation ctermfg=11 cterm=italic
 
 " Treesitter context
 hi TreesitterContext ctermbg=8
 hi TreesitterContextLineNumber ctermfg=7 cterm=bold
+
+" Ruby-specific highlights
+hi @keyword.ruby ctermfg=13 cterm=bold
+hi @symbol.ruby ctermfg=3
+hi @punctuation.bracket ctermfg=3
+hi @punctuation.delimiter ctermfg=3
+hi @punctuation.special ctermfg=3
+hi @constant.ruby ctermfg=3
+hi @define.ruby ctermfg=13
+
+" Lualine support
+hi lualine_a_normal ctermfg=0 ctermbg=4 cterm=bold
+hi lualine_b_normal ctermfg=15 ctermbg=8
+hi lualine_c_normal ctermfg=7 ctermbg=0
+
+hi lualine_a_insert ctermfg=0 ctermbg=2 cterm=bold
+hi lualine_b_insert ctermfg=15 ctermbg=8
+hi lualine_c_insert ctermfg=7 ctermbg=0
+
+hi lualine_a_visual ctermfg=0 ctermbg=5 cterm=bold
+hi lualine_b_visual ctermfg=15 ctermbg=8
+hi lualine_c_visual ctermfg=7 ctermbg=0
+
+hi lualine_a_replace ctermfg=0 ctermbg=1 cterm=bold
+hi lualine_b_replace ctermfg=15 ctermbg=8
+hi lualine_c_replace ctermfg=7 ctermbg=0
+
+hi lualine_a_command ctermfg=0 ctermbg=3 cterm=bold
+hi lualine_b_command ctermfg=15 ctermbg=8
+hi lualine_c_command ctermfg=7 ctermbg=0
+
+hi lualine_a_inactive ctermfg=8 ctermbg=0
+hi lualine_b_inactive ctermfg=8 ctermbg=0
+hi lualine_c_inactive ctermfg=8 ctermbg=0
